@@ -22,3 +22,32 @@ resource "azurerm_resource_group" "rg" {
   location = "westus2"
 }
 
+variable "subscription_id" {
+  type        = string
+  description = "The Azure AD client secret used to authenticate with the Azure API"
+  default = ""
+}
+
+variable "client_id" {
+  type        = string
+  description = "The Azure AD client secret used to authenticate with the Azure API"
+  default = ""
+}
+
+variable "client_secret" {
+  type        = string
+  description = "The Azure AD client secret used to authenticate with the Azure API"
+  default = ""
+}
+
+variable "tenant_id" {
+  type        = string
+  description = "tenant_id"
+  default = ""
+}
+
+variable "admin_password" {
+  type        = string
+  description = "admin_password"
+  default = ""
+}
