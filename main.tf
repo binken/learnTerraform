@@ -1,3 +1,4 @@
+# 1. Specify the version of the AzureRM Provider to use
 terraform {
   required_providers {
     azurerm = {
@@ -6,6 +7,16 @@ terraform {
     }
   }
 }
+
+# 2. Configure the AzureRM Provider
+provider "azurerm" {
+  subscription_id = var.subscription_id
+  client_id       = var.client_id
+  client_secret   = var.client_secret
+  tenant_id       = var.tenant_id
+  features {}
+}
+
 variable "subscription_id" {
   type        = string
   description = "The Azure AD client secret used to authenticate with the Azure API"
@@ -37,13 +48,7 @@ variable "admin_password" {
 }
 
 
-provider "azurerm" {
-  subscription_id = var.subscription_id
-  client_id       = var.client_id
-  client_secret   = var.client_secret
-  tenant_id       = var.tenant_id
-  features {}
-}
+
 
 resource "azurerm_resource_group" "example" {
   name     = "example-resource-group"
