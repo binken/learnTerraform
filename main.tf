@@ -22,6 +22,12 @@ variable "tenant_id" {
   default = ""
 }
 
+variable "admin_password" {
+  type        = string
+  description = "admin_password"
+  default = ""
+}
+
 
 provider "azurerm" {
   subscription_id = var.subscription_id
