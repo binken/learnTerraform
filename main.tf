@@ -1,30 +1,11 @@
-variable "subscription_id" {
-  type        = string
-  description = "The Azure AD client secret used to authenticate with the Azure API"
-}
-
-variable "client_id" {
-  type        = string
-  description = "The Azure AD client secret used to authenticate with the Azure API"
-}
-
-variable "client_secret" {
-  type        = string
-  description = "The Azure AD client secret used to authenticate with the Azure API"
-}
-
-variable "tenant_id" {
-  type        = string
-  description = "tenant_id"
-}
 
 
 
 provider "azurerm" {
-  subscription_id = var.subscription_id
-  client_id       = var.client_id
-  client_secret   = var.client_secret
-  tenant_id       = var.tenant_id
+  subscription_id = TF_VAR.subscription_id
+  client_id       = TF_VAR.client_id
+  client_secret   = TF_VAR.client_secret
+  tenant_id       = TF_VAR.tenant_id
 }
 
 resource "azurerm_resource_group" "example" {
