@@ -1,3 +1,25 @@
+variable "subscription_id" {
+  type        = string
+  description = "The Azure AD client secret used to authenticate with the Azure API"
+}
+
+variable "client_id" {
+  type        = string
+  description = "The Azure AD client secret used to authenticate with the Azure API"
+}
+
+variable "client_secret" {
+  type        = string
+  description = "The Azure AD client secret used to authenticate with the Azure API"
+}
+
+variable "tenant_id" {
+  type        = string
+  description = "tenant_id"
+}
+
+
+
 provider "azurerm" {
   subscription_id = var.subscription_id
   client_id       = var.client_id
