@@ -1,3 +1,10 @@
+  cloud {
+    organization = "cbzo"
+    workspaces {
+      name = "learnTerraform"
+    }
+  }
+
 terraform {
   required_providers {
     azurerm = {
