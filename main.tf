@@ -58,9 +58,9 @@ resource "azurerm_virtual_machine" "vm" {
   vm_size               = "Standard_DS1_v2"
 
   storage_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "Windows-10"
+    sku       = "win10-21h2-pro-g2"
     version   = "latest"
   }
 
