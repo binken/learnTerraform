@@ -76,3 +76,4 @@ resource "azurerm_virtual_machine" "vm" {
     admin_username = "adminuser"
     admin_password = "P@ssw0rd1234!"
   }
+}
