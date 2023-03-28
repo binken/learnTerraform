@@ -71,9 +71,14 @@ resource "azurerm_virtual_machine" "vm" {
     managed_disk_type = "Standard_LRS"
   }
 
-  os_profile {
+    os_profile {
     computer_name  = "vm1"
     admin_username = "adminuser"
     admin_password = "P@ssw0rd1234!"
+  }
+
+  os_profile_windows_config {
+    enable_automatic_upgrades = true
+    provision_vm_agent = true
   }
 }
