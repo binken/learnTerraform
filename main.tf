@@ -18,6 +18,19 @@ resource "azurerm_resource_group" "rg" {
   location = "westus2"
 }
 
+
+resource "azurerm_network_interface" "nic" {
+  name                = "my-nic"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  ip_configuration {
+    name                          = "my-nic-ipconfig"
+    subnet_id                     = azurerm_subnet.subnet.id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
 # Define the virtual machine
 resource "azurerm_virtual_machine" "vm" {
   name                  = var.vm_name
