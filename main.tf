@@ -31,6 +31,14 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name  = "${azurerm_resource_group.rg.name}"
 }
 
+resource "azurerm_public_ip" "publicip" {
+  name                = "my-vm-publicip"
+  location            = "${azurerm_resource_group.rg.location}"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+  allocation_method   = "Static"
+  sku                 = "Standard"
+
+}
 resource "azurerm_network_interface" "nic" {
   name                = "my-nic"
   location            = var.location
@@ -41,16 +49,16 @@ resource "azurerm_network_interface" "nic" {
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
   }
-}
-
-resource "azurerm_public_ip" "publicip" {
-  name                = "my-vm-publicip"
-  location            = "${azurerm_resource_group.rg.location}"
-  resource_group_name = "${azurerm_resource_group.rg.name}"
-  allocation_method   = "Static"
-  sku                 = "Standard"
+  ip_configuration {
+    name                          = "publicipconfiguration1"
+    subnet_id                     = azurerm_subnet.subnet.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.publicip.id
+  }
 
 }
+
+
 
 resource "azurerm_virtual_machine" "vm" {
   name                  = "vm1"
